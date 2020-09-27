@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Store\Store.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Store">
+      <HintPath>..\Store\bin\Debug\netcoreapp3.1\Store.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -17,4 +17,5 @@ namespace Store.Web.Models
 
 
     }
+
 }

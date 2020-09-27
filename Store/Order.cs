@@ -13,7 +13,7 @@ namespace Store
 
         public IReadOnlyCollection<OrderItem> Items
         {
-            get { return Items; }
+            get { return items; }
         }
 
         public int TotalCount

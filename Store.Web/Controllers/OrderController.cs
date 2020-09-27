@@ -19,20 +19,30 @@ namespace Store.Web.Controllers
 
         public IActionResult Index()
         {
-            if (HttpContext.Session.TryGetCart(out Cart cart)) 
+            if (HttpContext.Session.TryGetCart(out Cart cart))
             {
-              var  order = orderRepository.GetById(cart.OrderId);
+                var order = orderRepository.GetById(cart.OrderId);
 
                 OrderModel model = Map(order);
+
 
                 return View(model);
 
             }
 
+
+            //OrderItemModel orderItemModel = new OrderItemModel { Author = "Bibo", BookId = 5, Count = 1, Price = 100m, Title = "Пошёл ты нахуй урод" };
+
+            //OrderModel orderModel = new OrderModel { Id = 2, Items = new[] { orderItemModel }, TotalCount = 1, TotalPrice = 2000m };
+
+            //return View(orderModel);
+
+
+
             return View("Empty");
         }
 
-        private OrderModel Map(Order order)
+        public OrderModel Map(Order order)
         {
 
 
@@ -88,8 +98,6 @@ namespace Store.Web.Controllers
 
             cart.TotalCount = order.TotalCount;
             cart.TotalPrice = order.TotalSumm;
-
-
             HttpContext.Session.Set(cart);
 
             return RedirectToAction("Index", "Book", new { id });

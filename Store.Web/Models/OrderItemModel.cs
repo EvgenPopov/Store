@@ -17,4 +17,7 @@ namespace Store.Web.Models
         public decimal Price { get; set; }
 
     }
+
+
+   
 }

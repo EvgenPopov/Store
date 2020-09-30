@@ -24,6 +24,10 @@ namespace Store.Tests
            return ResultOfGetAllByIsbn;
         }
 
+        public Book GetById(int id)
+        {
+            throw new System.NotImplementedException();
+        }
 
         Book[] IBookRepository.GetAllByIds(IEnumerable<int> booksId)
         {

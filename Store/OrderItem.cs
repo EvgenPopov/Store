@@ -8,15 +8,34 @@ namespace Store
     {
         public int BookId { get; }
 
-        public int Count { get; }
+        private int count;
+
+        public int Count
+        {
+            get { return count; }
+
+            set
+            {
+                ThrowIfInvalidExeption(value);
+
+                count = value;
+            }
+
+        }
+
+        private static void ThrowIfInvalidExeption(int count)
+        {
+            if (count <= 0)
+                throw new ArgumentOutOfRangeException("Count must be grater than zero");
+        }
 
         public decimal Price { get; }
 
         public OrderItem(int bookid, int count, decimal price)
         {
 
-            if (count <= 0)
-                throw new ArgumentOutOfRangeException("Count must be more than null");
+            ThrowIfInvalidExeption(count);
+       
 
             BookId = bookid;
 
